@@ -5,4 +5,4 @@ test: input.o imageout.o test.o Makefile
 	$(FC) -c $< -o $@
 
 clean:
-	rm -f *.o *.mod test
+	rm -f *.o *.mod test *.pgm
