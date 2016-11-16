@@ -28,8 +28,8 @@ contains
       do i=1,x
         write(u,*) d(i,j)
       end do
-
     end do
+
   end subroutine writepgm
  
 end module imageout
