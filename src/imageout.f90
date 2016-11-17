@@ -10,16 +10,15 @@ contains
 ! cols is the max colour (colours go 0 -> col)
 ! u is the unit to write to.
   subroutine writepgm(d, x, y, cols, u)
-    use iso_fortran_env
     implicit none
     integer, intent(in) :: x, y, cols, u
     integer, dimension(:,:), intent(in):: d
     integer :: i, j
-    character(len=8) :: temp
 
 ! Write PGM header.
     write(u,"(A)") "P2"
-    write(u,"(A)") "# Written by ruflib"
+    write(u,"(A)") "# Written by ruflib:"
+    write(u,"(A)") "# https://github.com/owainkenwayucl/ruflib"
     write(u,"(2I8)") x,y
     write(u,"(1I8)") cols
     
@@ -37,16 +36,15 @@ contains
 ! th is the threshold at which a number is 1 rather than 0
 ! u is the unit to write to.
   subroutine writepbm(d, x, y, th, u)
-    use iso_fortran_env
     implicit none
     integer, intent(in) :: x, y, u, th
     integer, dimension(:,:), intent(in):: d
     integer :: i, j
-    character(len=8) :: temp
 
 ! Write PGM header.
     write(u,"(A)") "P1"
-    write(u,"(A)") "# Written by ruflib"
+    write(u,"(A)") "# Written by ruflib:"
+    write(u,"(A)") "# https://github.com/owainkenwayucl/ruflib"
     write(u,"(2I8)") x,y
     
 ! Loop over lines in array and write them out.
