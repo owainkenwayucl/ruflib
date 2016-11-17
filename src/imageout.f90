@@ -31,5 +31,35 @@ contains
     end do
 
   end subroutine writepgm
+
+! Write a 2D array out as a PBM.
+! d is the 2D array (x,y) of pixels.
+! th is the threshold at which a number is 1 rather than 0
+! u is the unit to write to.
+  subroutine writepbm(d, x, y, th, u)
+    use iso_fortran_env
+    implicit none
+    integer, intent(in) :: x, y, u, th
+    integer, dimension(:,:), intent(in):: d
+    integer :: i, j
+    character(len=8) :: temp
+
+! Write PGM header.
+    write(u,"(A)") "P1"
+    write(u,"(A)") "# Written by ruflib"
+    write(u,"(2I8)") x,y
+    
+! Loop over lines in array and write them out.
+    do j=1,y
+      do i=1,x
+        if (d(i,j) .ge. th) then
+          write(u,*) 1
+        else
+          write(u,*) 0
+        end if
+      end do
+    end do
+
+  end subroutine writepbm
  
 end module imageout

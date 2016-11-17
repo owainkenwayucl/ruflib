@@ -34,5 +34,9 @@ program test
   call writepgm(img2, 5, 6, 11, 31)
   close(31)
 
+  open(unit=30, file="test3.pbm")
+  call writepbm(img2, 5, 6, 5, 30)
+  close(30)
+
 
 end program test
