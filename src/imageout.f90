@@ -41,7 +41,7 @@ contains
     integer, dimension(:,:), intent(in):: d
     integer :: i, j
 
-! Write PGM header.
+! Write PBM header.
     write(u,"(A)") "P1"
     write(u,"(A)") "# Written by ruflib:"
     write(u,"(A)") "# https://github.com/owainkenwayucl/ruflib"
