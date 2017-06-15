@@ -25,9 +25,11 @@ contains
 ! Loop over lines in array and write them out.
     do j=1,y
       do i=1,x
-        write(u,*) d(i,j)
+        write(u,93) d(i,j)
       end do
+      write(u,*) ' '
     end do
+93  format(I8,$)
 
   end subroutine writepgm
 
@@ -51,12 +53,14 @@ contains
     do j=1,y
       do i=1,x
         if (d(i,j) .ge. th) then
-          write(u,*) 1
+          write(u,94) "1 "
         else
-          write(u,*) 0
+          write(u,94) "0 "
         end if
       end do
+      write(u,*) ' ' 
     end do
+94  format(A,$)
 
   end subroutine writepbm
  
