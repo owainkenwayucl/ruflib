@@ -18,7 +18,7 @@ program test
   call clearterm()
   write(*,*) "Testing image output:"
   write(*,*) "Generating image:"
-  do i=i,5 
+  do i=1,5 
     do j=1,6
       img(i,j) = i + j
       img2(i,j) = 0
